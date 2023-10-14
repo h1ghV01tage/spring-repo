@@ -12,9 +12,17 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
   
   <!-- stateless class is a class which doesn't have any attribute-->
+  
   <bean id="movieService" class="com.model.MovieServiceImpl">
+	  <property name="jdbcTemplate" ref="mjdbcTemplate"></property>
+  </bean>
+  
+  
+  <!--ceate jdbc template bean -->
+  <bean id="mjdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 	  <property name="dataSource" ref="owodataSource"></property>
   </bean>
+  
   
   <!-- This is the spring jdbc package-->
 	<bean id="owodataSource"
